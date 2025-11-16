@@ -91,7 +91,7 @@ project/
 
 ---
 
-## 📊 Architecture Diagram (ASCII)
+## 📊 Architecture Diagram
 
 ```
                  ┌──────────────┐
@@ -135,3 +135,4 @@ flowchart TD
     E --> F[Final Answer + Reflection]
 ```
 ````
+
