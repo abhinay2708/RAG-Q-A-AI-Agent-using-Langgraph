@@ -1,0 +1,17 @@
+This project implements a Retrieval-Augmented Generation (RAG) agent using LangGraph, Gemini 2.0 Flash, and ChromaDB to answer domain-specific questions based on local text files.
+The system follows a structured four-node workflow—Plan → Retrieve → Answer → Reflect—defined through a LangGraph state machine.
+The Plan node determines whether retrieval is needed based on the question type,
+while the Retrieve node uses MiniLM embeddings and a Chroma vector store to fetch the most relevant chunk of information from the dataset.
+The Answer node uses Gemini 2.0 to generate a grounded, context-aware response, strictly guided to avoid hallucinations.
+Finally, the Reflect node performs an internal evaluation by scoring the relevance of the answer and providing a short justification.
+This modular architecture ensures interpretability, reliability, and a clear separation of concerns across the RAG pipeline.
+
+During development, several practical challenges were encountered.
+At first i tried to build this app using groq but that time i faced some issue and not getting any output. Then i switched to gemini model.
+And using gemini model i also faced some challenges.
+One key challenge was managing Chroma telemetry warnings, which required configuring environment variables and properly initializing the vector database.
+Another challenge involved over-retrieval, where multiple unrelated chunks were retrieved, resulting in mixed or irrelevant context.
+This was resolved by reducing chunk sizes and narrowing retrieval to k=1.
+Ensuring Streamlit compatibility required moving all model and database initializations outside the __main__ block, as Streamlit imports modules differently than standard Python execution.
+Lastly, achieving stable and meaningful evaluation required integrating LLM-as-a-Judge and ROUGE metrics, enabling a balanced assessment of answer quality and contextual grounding. 
+Overall, the project provided hands-on experience in building a reliable and interpretable RAG system using modern AI tooling.

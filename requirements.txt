@@ -1,0 +1,8 @@
+langchain
+langchain_chroma
+langchain_huggingface
+langchain_text_splitters
+langgraph
+google.generativeai
+sentence-transformers
+streamlit
